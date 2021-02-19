@@ -1,11 +1,13 @@
 import { gql, useQuery } from '@apollo/client';
+import { Link } from 'gatsby';
 import React from 'react';
 
 const ALL_POSTS_QUERY = gql`
     query ALL_POSTS_QUERY{
         posts{
-            name
+            title
             content
+          	slug
             categories{
                 name
             }
@@ -13,7 +15,7 @@ const ALL_POSTS_QUERY = gql`
                 username
             }
         }
-}
+    }
 
 `;
 export default function AllPosts() {
@@ -26,9 +28,11 @@ export default function AllPosts() {
         <div>
             <ul>
                 {posts && posts.map((post) => (
-                    <li key={post.name}>
-                        {post.name}
-                        <span>
+                    <li key={post.title}>
+                        <Link to={`/blog/${post?.slug}`}>
+                        {post.title}
+                        </Link>
+                        <span style={{display: "block"}}>
                             Posted by: {post?.Author?.username}
                         </span>
                     </li>
