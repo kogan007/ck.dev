@@ -1,7 +1,9 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import React from 'react';
+import client from './client';
+import {ApolloProvider} from '@apollo/client';
 
-// You can delete this file if you're not using it
+// eslint-disable-next-line react/prop-types
+export const wrapRootElement = ({element}) => (
+  <ApolloProvider client={client}>{element}</ApolloProvider>
+);
+
