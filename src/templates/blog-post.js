@@ -30,7 +30,7 @@ export default ({data: gData}) => {
     const {post} = data;
 
     return (
-        <Layout>
+        <div>
             <h2>{post?.title}</h2>
 
             <p>
@@ -40,7 +40,7 @@ export default ({data: gData}) => {
             <p>
                 Written By: {post?.Author?.username}
             </p>
-        </Layout>
+         </div>
     )
 }
 

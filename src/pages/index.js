@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import Test from "../components/Test"
 
 const IndexPage = () => (
-  <Layout>
+  <div>
     <SEO title="Home" />
     <Link to="/blog">Blog</Link>
     <h1>Hi people</h1>
@@ -18,7 +18,7 @@ const IndexPage = () => (
     </div>
     <Link to="/page-2/">Go to page 2</Link> <br />
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
+  </div>
 )
 
 export default IndexPage
