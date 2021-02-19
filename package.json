@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@apollo/client": "^3.3.11",
+    "cross-env": "^7.0.3",
     "gatsby": "^2.32.3",
     "gatsby-image": "^2.11.0",
     "gatsby-plugin-manifest": "^2.12.0",
@@ -30,7 +31,7 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
+    "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
