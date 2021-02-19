@@ -19,15 +19,20 @@ exports.onPostBuild = ({ reporter }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
+  const userTemplate = path.resolve(`src/templates/user.js`)
   const result = await graphql(`
-    query BlogPosts {
-        strapi {
+        query Content {
+          strapi {
             posts {
-                slug
-                id
+              slug
+              id
             }
+            users {
+              username
+              id
+            }
+          }
         }
-    }
   `)
   
   result.data.strapi.posts.forEach(post => {
@@ -36,6 +41,16 @@ exports.createPages = async ({ graphql, actions }) => {
       component: blogPostTemplate,
       context: {
         postId: post.id,
+      },
+    })
+  })
+
+  result.data.strapi.users.forEach(user => {
+    createPage({
+      path: `/users/${user.username}`,
+      component: userTemplate,
+      context: {
+        userId: user.id,
       },
     })
   })

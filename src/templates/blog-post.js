@@ -1,6 +1,6 @@
 import Layout from "../components/layout"
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { gql, useQuery } from "@apollo/client";
 
 
@@ -38,7 +38,10 @@ export default ({data: gData}) => {
             </p>
 
             <p>
-                Written By: {post?.author?.username}
+                Written By: 
+                <Link to={`/users/${post?.author?.username}`}>
+                    {post?.author?.username}
+                </Link> 
             </p>
          </div>
     )

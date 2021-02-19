@@ -33,7 +33,10 @@ export default function AllPosts() {
                         {post.title}
                         </Link>
                         <span style={{display: "block"}}>
-                            Posted by: {post?.author?.username}
+                            Posted by: 
+                            <Link to={`/users/${post?.author?.username}`}>
+                            {post?.author?.username}
+                            </Link>
                         </span>
                     </li>
                 ))}
