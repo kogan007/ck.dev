@@ -11,7 +11,7 @@ const ALL_POSTS_QUERY = gql`
             categories{
                 name
             }
-            Author {
+            author {
                 username
             }
         }
@@ -33,7 +33,7 @@ export default function AllPosts() {
                         {post.title}
                         </Link>
                         <span style={{display: "block"}}>
-                            Posted by: {post?.Author?.username}
+                            Posted by: {post?.author?.username}
                         </span>
                     </li>
                 ))}

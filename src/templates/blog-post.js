@@ -9,7 +9,7 @@ const POST_QUERY = gql`
         post(id: $id){
             title
             content
-            Author{
+            author{
                 username
             }
         }
@@ -38,7 +38,7 @@ export default ({data: gData}) => {
             </p>
 
             <p>
-                Written By: {post?.Author?.username}
+                Written By: {post?.author?.username}
             </p>
          </div>
     )
