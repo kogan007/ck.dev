@@ -8,12 +8,12 @@ import Test from "../components/Test"
 import AllPosts from "../components/blog/AllPosts"
 
 const BlogPage = () => (
-  <Layout>
+  <div>
     <SEO title="Blog" />
     
     <AllPosts />
    
-  </Layout>
+  </div>
 )
 
 export default BlogPage
