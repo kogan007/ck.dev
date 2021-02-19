@@ -1,25 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `CoreyKogan.dev`,
+    description: `Corey Kogan's Portfolio and blog.`,
+    author: `@coreykogan`,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: "CoreyKogan.DEV",
-        short_name: "CoreyKogan",
-        start_url: "/",
-        background_color: "#6b37bf",
-        theme_color: "#6b37bf",
-        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: "standalone",
-        icon: "src/images/icon.png", // This path is relative to the root of the site.
-      },
-    },
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -33,15 +18,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `corey-kogan-dev`,
+        short_name: `coreykogan.dev`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-offline`,
     {
       resolve: "gatsby-source-graphql",
       options: {
