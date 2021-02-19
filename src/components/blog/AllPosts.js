@@ -17,6 +17,8 @@ export default function AllPosts() {
     const {data, loading, error} = useQuery(ALL_POSTS_QUERY)
 
     const posts = data?.posts;
+
+    if (loading) return <p>Loading...</p>
     return (
         <div>
             <ul>
