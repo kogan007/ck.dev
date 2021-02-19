@@ -20,7 +20,7 @@ export default function AllPosts() {
     return (
         <div>
             <ul>
-                {posts.map((post) => (
+                {posts && posts.map((post) => (
                     <li key={post.name}>
                         {post.name}
                     </li>
