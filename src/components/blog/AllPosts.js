@@ -7,9 +7,12 @@ const ALL_POSTS_QUERY = gql`
             name
             content
             categories{
-            name
+                name
+            }
+            Author {
+                username
+            }
         }
-    }
 }
 
 `;
@@ -25,6 +28,9 @@ export default function AllPosts() {
                 {posts && posts.map((post) => (
                     <li key={post.name}>
                         {post.name}
+                        <span>
+                            Posted by: {post?.Author?.username}
+                        </span>
                     </li>
                 ))}
             </ul>
