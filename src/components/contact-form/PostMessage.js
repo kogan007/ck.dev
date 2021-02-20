@@ -1,12 +1,15 @@
 import { gql, useMutation } from '@apollo/client';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    fieldset{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border: 0;
+    }
     label {
         padding: 20px;
         input {
@@ -41,6 +44,9 @@ const CONTACT_MUTATION = gql`
 `;
 
 export default function PostMessage(){
+
+    const [messageSent, setMessage] = useState('')
+
     const { register, handleSubmit, errors } = useForm()
 
     const [sendMessage, { data, loading }] = useMutation(CONTACT_MUTATION)
@@ -53,13 +59,20 @@ export default function PostMessage(){
                 message
             }
         })
+
+        setMessage("Your message has been sent")
     };
 
-    if (loading) return <p>Loading...</p>
     
+
     return (
         <div>
+            { messageSent && (
+                <p>{messageSent}</p>
+            )}
+            
             <StyledForm onSubmit={handleSubmit(onSubmit)}>
+                <fieldset disabled={loading}>
                 <label htmlFor="title">
                     Message Title
                     <input name="title" id="title" ref={register} /> 
@@ -76,6 +89,7 @@ export default function PostMessage(){
                 </label>
                 
                 <input type="submit" />
+                </fieldset>
             </StyledForm>
         </div>
     )
