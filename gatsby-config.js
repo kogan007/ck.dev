@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `CoreyKogan.dev`,
-    description: `Corey Kogan's Portfolio and blog.`,
+    description: `Corey Kogan's Portfolio and Blog`,
     author: `@coreykogan`,
   },
   plugins: [
@@ -39,8 +39,15 @@ module.exports = {
         url: "https://admin.coreykogan.dev/graphql",
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `orange`,
+        // Disable the loading spinner.
+        showSpinner: false,
+      },
+    },
+    `gatsby-plugin-styled-components`
   ],
 }
