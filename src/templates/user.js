@@ -55,7 +55,7 @@ export default ({data: gData}) => {
             <h2>{user.username}'s Profile</h2>
             {
                 user.avatar && (
-                    <img src={`https://admin.coreykogan.dev${user.avatar.url}`} />
+                    <img src={user.avatar.url} />
                 )
             }
             
