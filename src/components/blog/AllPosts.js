@@ -1,29 +1,25 @@
-import { gql, useQuery } from '@apollo/client';
 import { Link } from 'gatsby';
 import React from 'react';
+import { useStaticQuery, graphql } from "gatsby"
 
-const ALL_POSTS_QUERY = gql`
-    query ALL_POSTS_QUERY{
-        posts{
-            title
-            content
-          	slug
-            categories{
-                name
+export default function AllPosts() {
+    const data = useStaticQuery(graphql`
+        query ALL_POSTS {
+            strapi {
+                posts {
+                title
+                slug
+                author {
+                    username
+                }
             }
-            author {
-                username
             }
         }
-    }
 
-`;
-export default function AllPosts() {
-    const {data, loading, error} = useQuery(ALL_POSTS_QUERY)
+    `);
 
-    const posts = data?.posts;
-
-    if (loading) return <p>Loading...</p>
+    const posts = data?.strapi?.posts;
+    
     return (
         <div>
             <ul>

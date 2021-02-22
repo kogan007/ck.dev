@@ -1,9 +1,7 @@
-import Layout from "../components/layout"
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { gql, useQuery } from "@apollo/client";
-import { render } from "react-dom";
-
+import SEO from "../components/seo"
 
 const USER_QUERY = gql`
     query USER_QUERY($id: ID!){
@@ -52,10 +50,11 @@ export default ({data: gData}) => {
     }
     return (
         <div>
+            <SEO title={`${user.username}'s Profile`} />
             <h2>{user.username}'s Profile</h2>
             {
                 user.avatar && (
-                    <img src={user.avatar.url} />
+                    <img src={user.avatar.url} alt={user.username}/>
                 )
             }
             
