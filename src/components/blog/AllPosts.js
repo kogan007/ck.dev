@@ -6,11 +6,11 @@ import styled from 'styled-components';
 
 
 const Grid = styled.div`
-    grid-template-columns: 1fr 1fr 1fr;
     padding: 0 70px;
     grid-gap: 32px;
     margin-top: 32px;
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
 `;
 export default function AllPosts() {
     const data = useStaticQuery(graphql`
