@@ -55,7 +55,7 @@ export default function ResetPassword({code}) {
     return (
         <div>
              {
-                 !error && (
+                 !error && data && (
                      <div>
                          <p>Successfully reset password</p>
                     </div>
