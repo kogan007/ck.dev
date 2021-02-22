@@ -38,7 +38,6 @@ export default function AllPosts() {
     `);
 
     const posts = data?.strapi?.posts;
-    
     return (
         <div>
             <Grid>
