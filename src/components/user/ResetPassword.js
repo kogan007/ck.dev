@@ -52,8 +52,6 @@ export default function ResetPassword({code}) {
         })
     };
 
-    if (data) console.log(data)
-    if (error) console.log(error)
     return (
         <div>
              {
