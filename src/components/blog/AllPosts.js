@@ -1,7 +1,17 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
+import Card from './Card';
+import styled from 'styled-components';
 
+
+const Grid = styled.div`
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 70px;
+    grid-gap: 32px;
+    margin-top: 32px;
+    display: grid;
+`;
 export default function AllPosts() {
     const data = useStaticQuery(graphql`
         query ALL_POSTS {
@@ -9,12 +19,21 @@ export default function AllPosts() {
                 posts {
                 title
                 slug
+                id
+                content
+                categories {
+                    name
+                }
                 author {
                     username
                 }
-            }
+                images {
+                    url
+                }
             }
         }
+    }
+
 
     `);
 
@@ -22,21 +41,11 @@ export default function AllPosts() {
     
     return (
         <div>
-            <ul>
+            <Grid>
                 {posts && posts.map((post) => (
-                    <li key={post.title}>
-                        <Link to={`/blog/${post?.slug}`}>
-                        {post.title}
-                        </Link>
-                        <span style={{display: "block"}}>
-                            Posted by: 
-                            <Link to={`/users/${post?.author?.username}`}>
-                            {post?.author?.username}
-                            </Link>
-                        </span>
-                    </li>
+                    <Card key={post.id} otherProps={post} />
                 ))}
-            </ul>
+            </Grid>
         </div>
     )
 }

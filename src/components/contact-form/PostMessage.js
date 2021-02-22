@@ -51,7 +51,8 @@ export default function PostMessage(){
 
     const [sendMessage, { data, loading }] = useMutation(CONTACT_MUTATION)
 
-    const onSubmit = ({title, email, content: message}) => {
+    const onSubmit = ({title, email, content: message}, e) => {
+        e.target.reset();
         sendMessage({
             variables: {
                 title,
