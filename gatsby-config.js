@@ -67,5 +67,11 @@ module.exports = {
         https: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.coreykogan.dev`,
+      },
+    },
   ],
 }
