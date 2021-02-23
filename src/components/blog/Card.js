@@ -16,6 +16,8 @@ const StyledCard = styled.div`
     padding: 10px;
     transition: top .2s ease-in-out;
     flex-grow: 1;
+    max-width: 520px;
+    width: 250px;
     .post-details{
         display: flex;
         flex-direction: column;
