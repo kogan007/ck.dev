@@ -60,6 +60,12 @@ module.exports = {
           include: /images/ 
         }
       }
-    }
+    },
+    {
+      resolve: 'gatsby-plugin-htaccess',
+      options: {
+        https: true,
+      },
+    },
   ],
 }
