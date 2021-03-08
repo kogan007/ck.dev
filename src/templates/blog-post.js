@@ -9,6 +9,7 @@ const POST_QUERY = gql`
         post(id: $id){
             title
             content
+            dateposted
             author{
                 username
             }
@@ -29,6 +30,7 @@ export default ({data: gData}) => {
 
     const {post} = data;
 
+    console.log(post)
     return (
         <div>
             <h2>{post?.title}</h2>
@@ -43,6 +45,7 @@ export default ({data: gData}) => {
                     {post?.author?.username}
                 </Link> 
             </p>
+           
          </div>
     )
 }

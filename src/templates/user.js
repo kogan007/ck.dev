@@ -17,7 +17,7 @@ const USER_QUERY = gql`
         }
     }
 `
-export default ({data: gData}) => {
+const UserPage = ({data: gData}) => {
     
     const userId = gData?.strapi?.user?.id;
 
@@ -65,6 +65,8 @@ export default ({data: gData}) => {
          </div>
     )
 }
+
+export default UserPage;
 
 export const query = graphql`
     query User($userId: ID!) {

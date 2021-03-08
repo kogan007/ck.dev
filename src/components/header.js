@@ -3,22 +3,10 @@ import PropTypes from "prop-types"
 import React from "react"
 import { graphql } from 'gatsby';
 import Img from "gatsby-image"
+import { StaticImage } from 'gatsby-plugin-image';
 
 const Header = (data) => {
-  const {file} = useStaticQuery(
-    graphql`
-    query MyQuery {
-    file(relativePath: { eq: "logo.png" }) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-  `
-  )
+
   return (
     <header
       style={{
@@ -41,8 +29,11 @@ const Header = (data) => {
               textDecoration: `none`,
             }}
           >
-            <Img
-              fluid={file.childImageSharp.fluid}
+            <StaticImage 
+              src="../images/logo.png" 
+              alt="Header Logo"
+              height={150} 
+              placeholder="tracedSVG"
             />
           </Link>
         
