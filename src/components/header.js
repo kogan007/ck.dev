@@ -32,7 +32,7 @@ const Header = (data) => {
             <StaticImage 
               src="../images/logo.png" 
               alt="Header Logo"
-              height={150} 
+              width={400}
               placeholder="tracedSVG"
             />
           </Link>

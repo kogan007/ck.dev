@@ -1,7 +1,7 @@
 import { gql, useMutation } from '@apollo/client';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const StyledForm = styled.form`
     fieldset{

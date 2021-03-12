@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import Card from './Card';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 
 const Grid = styled.div`
