@@ -1,10 +1,17 @@
-import Layout from "../components/layout"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { gql, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
-import { StaticImage } from "gatsby-plugin-image";
+
 import SEO from "../components/seo";
+
+import 'swiper/swiper.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/navigation/navigation.scss';
+
+SwiperCore.use([Navigation, Pagination]);
 
 
 const POST_QUERY = gql`
@@ -54,7 +61,6 @@ export default ({data: gData}) => {
 
     const {post} = data;
 
-    console.log(gData)
     
     return (
         <StyledBlogPost>
@@ -62,10 +68,19 @@ export default ({data: gData}) => {
             <h1>{post?.title}</h1>
 
             <div className="max-w-md main-img">
-                <img 
-                    src={gData?.strapi?.post?.images[0].url}
-                    alt={post?.title}
-                />
+                <Swiper
+                    pagination={{clickable: true}}
+                    navigation
+                >
+                    {
+                        gData?.strapi?.post.images.map((postImage, index) => (
+                            <SwiperSlide key={index}> 
+                                <img src={postImage.url} alt={postImage.caption}/>
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper>
+                
             </div>
 
             <p>
@@ -91,6 +106,7 @@ export const query = graphql`
                 id
                 images {
                     url
+                    caption
                 }
             }
         }

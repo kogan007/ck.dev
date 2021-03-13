@@ -24,6 +24,7 @@
     "gatsby-plugin-postcss": "^4.0.0",
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-sass": "^4.0.2",
     "gatsby-plugin-sharp": "^3.0.0",
     "gatsby-source-filesystem": "^3.0.0",
     "gatsby-source-graphql": "^2.14.0",
@@ -37,7 +38,9 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
-    "react-hook-form": "^6.15.4"
+    "react-hook-form": "^6.15.4",
+    "sass": "^1.32.8",
+    "swiper": "^6.5.0"
   },
   "devDependencies": {
     "prettier": "2.2.1",
