@@ -54,17 +54,17 @@ export default ({data: gData}) => {
 
     const {post} = data;
 
+    console.log(gData)
     
     return (
         <StyledBlogPost>
             <SEO title={post?.title} />
             <h1>{post?.title}</h1>
 
-            <div className="main-img">
-                <StaticImage 
+            <div className="max-w-md main-img">
+                <img 
                     src={gData?.strapi?.post?.images[0].url}
                     alt={post?.title}
-                    placeholder="blurred"
                 />
             </div>
 
