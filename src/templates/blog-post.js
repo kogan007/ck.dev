@@ -2,6 +2,8 @@ import Layout from "../components/layout"
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { gql, useQuery } from "@apollo/client";
+import styled from "@emotion/styled";
+import { StaticImage } from "gatsby-plugin-image";
 
 
 const POST_QUERY = gql`
@@ -16,6 +18,26 @@ const POST_QUERY = gql`
         }
     }
 `
+
+const StyledBlogPost = styled.div`
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 50px 0px;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    h1{
+        font-family: 'Oswald';
+        font-size: 60px;
+        text-transform: uppercase;
+        padding: 30px 0px;
+    }
+    .writtenBy{
+        margin-top: auto;
+    }
+`;
+
+
 export default ({data: gData}) => {
     
     const postId = gData?.strapi?.post?.id;
@@ -30,23 +52,32 @@ export default ({data: gData}) => {
 
     const {post} = data;
 
-    console.log(post)
+    console.log(gData.strapi.post.images[0].url)
     return (
-        <div>
-            <h2>{post?.title}</h2>
+        <StyledBlogPost>
+            <h1>{post?.title}</h1>
+
+            <div className="main-img">
+                <StaticImage 
+                    src="gData?.strapi?.post?.images[0].url"
+                    alt="post?.title"
+                    placeholder="blurred"
+                />
+            </div>
 
             <p>
                 {post?.content}
             </p>
 
-            <p>
-                Written By: 
-                <Link to={`/users/${post?.author?.username}`}>
+            <div className="writtenBy">
+                <p>Written By: 
+                <Link style={{marginLeft: '5px'}} to={`/users/${post?.author?.username}`}>
                     {post?.author?.username}
                 </Link> 
-            </p>
+                </p>
+            </div>
            
-         </div>
+         </StyledBlogPost>
     )
 }
 
@@ -54,7 +85,10 @@ export const query = graphql`
     query BlogPost($postId: ID!) {
         strapi {
             post(id: $postId) {
-            id
+                id
+                images {
+                    url
+                }
             }
         }
     }

@@ -1,16 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
+import Hero from "../components/hero"
+import LatestPosts from "../components/blog/LatestPosts"
 
 
 const IndexPage = () => (
   <div>
     <SEO title="Home" />
-    <Link to="/blog">Blog</Link>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    
+    <Hero />
+    <LatestPosts />
     
   </div>
 )

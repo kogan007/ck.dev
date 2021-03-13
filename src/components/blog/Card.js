@@ -132,11 +132,11 @@ const Card = ({otherProps: post}) => {
                 }
                
             </div>
-            <h2 className="post-title blue-grey-heading">
+            <h3 className="post-title blue-grey-heading">
                 <Link to={`/blog/${post?.slug}`}>
                     {post.title}
                 </Link>
-            </h2>
+            </h3>
             <div className="post-meta">
                 {post.content}
             </div>
