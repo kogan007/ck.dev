@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby';
 import { gql, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
 import { StaticImage } from "gatsby-plugin-image";
+import SEO from "../components/seo";
 
 
 const POST_QUERY = gql`
@@ -21,6 +22,7 @@ const POST_QUERY = gql`
 
 const StyledBlogPost = styled.div`
     max-width: 1400px;
+    width: 92%;
     margin: 0 auto;
     padding: 50px 0px;
     display: flex;
@@ -52,15 +54,16 @@ export default ({data: gData}) => {
 
     const {post} = data;
 
-    console.log(gData.strapi.post.images[0].url)
+    
     return (
         <StyledBlogPost>
+            <SEO title={post?.title} />
             <h1>{post?.title}</h1>
 
             <div className="main-img">
                 <StaticImage 
-                    src="gData?.strapi?.post?.images[0].url"
-                    alt="post?.title"
+                    src={gData?.strapi?.post?.images[0].url}
+                    alt={post?.title}
                     placeholder="blurred"
                 />
             </div>

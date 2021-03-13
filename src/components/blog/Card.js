@@ -18,6 +18,7 @@ const StyledCard = styled.div`
     flex-grow: 1;
     max-width: 520px;
     width: 250px;
+    margin-bottom: 20px;
     .post-details{
         display: flex;
         flex-direction: column;
